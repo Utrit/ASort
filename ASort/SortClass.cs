@@ -22,8 +22,6 @@ namespace ASort
             }
             for (int i = 0; i < formats.Length; i++) {
                 string[] tosort = Directory.GetFiles(path, "*"+formats[i]);
-                string hui = formats[i];
-                hui = hui;
                 for (int k = 0; k <tosort.Length; k++) {
                     
                     if (tosort[k] != expect && !Path.GetFileName(tosort[k]).Equals("Data.txt"))
