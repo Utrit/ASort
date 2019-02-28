@@ -33,11 +33,12 @@
             this.ConvertTypes = new System.Windows.Forms.RichTextBox();
             this.SortB = new System.Windows.Forms.Button();
             this.FolderDial = new System.Windows.Forms.FolderBrowserDialog();
+            this.TruePath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SelectB
             // 
-            this.SelectB.Location = new System.Drawing.Point(274, 12);
+            this.SelectB.Location = new System.Drawing.Point(274, 7);
             this.SelectB.Name = "SelectB";
             this.SelectB.Size = new System.Drawing.Size(98, 29);
             this.SelectB.TabIndex = 0;
@@ -47,10 +48,11 @@
             // 
             // PathBox
             // 
-            this.PathBox.Location = new System.Drawing.Point(12, 17);
+            this.PathBox.Location = new System.Drawing.Point(12, 12);
             this.PathBox.Name = "PathBox";
             this.PathBox.Size = new System.Drawing.Size(251, 20);
             this.PathBox.TabIndex = 1;
+            this.PathBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.PathBox_KeyUp);
             // 
             // ConvertTypes
             // 
@@ -59,6 +61,7 @@
             this.ConvertTypes.Size = new System.Drawing.Size(251, 201);
             this.ConvertTypes.TabIndex = 2;
             this.ConvertTypes.Text = "";
+            this.ConvertTypes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ConvertTypes_KeyUp);
             // 
             // SortB
             // 
@@ -68,12 +71,24 @@
             this.SortB.TabIndex = 3;
             this.SortB.Text = "Sort";
             this.SortB.UseVisualStyleBackColor = true;
+            this.SortB.Click += new System.EventHandler(this.SortB_Click);
+            // 
+            // TruePath
+            // 
+            this.TruePath.AutoSize = true;
+            this.TruePath.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.TruePath.Location = new System.Drawing.Point(12, 36);
+            this.TruePath.Name = "TruePath";
+            this.TruePath.Size = new System.Drawing.Size(44, 13);
+            this.TruePath.TabIndex = 4;
+            this.TruePath.Text = "TryPath";
             // 
             // ASort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 261);
+            this.Controls.Add(this.TruePath);
             this.Controls.Add(this.SortB);
             this.Controls.Add(this.ConvertTypes);
             this.Controls.Add(this.PathBox);
@@ -97,6 +112,7 @@
         private System.Windows.Forms.RichTextBox ConvertTypes;
         private System.Windows.Forms.Button SortB;
         private System.Windows.Forms.FolderBrowserDialog FolderDial;
+        private System.Windows.Forms.Label TruePath;
     }
 }
 
