@@ -11,6 +11,7 @@ namespace ASort
     {
         public SortClass(string path, string sorttype)
         {
+            Random rnd = new Random();
             int separator = sorttype.IndexOf('>');
             string folder = sorttype.Substring(separator+1);
             string format = sorttype.Substring(0, separator);
@@ -23,10 +24,12 @@ namespace ASort
             for (int i = 0; i < formats.Length; i++) {
                 string[] tosort = Directory.GetFiles(path, "*"+formats[i]);
                 for (int k = 0; k <tosort.Length; k++) {
-                    
+
                     if (tosort[k] != expect && !Path.GetFileName(tosort[k]).Equals("Data.txt"))
                     {
-                        File.Move(tosort[k], sortfolder+"\\"+Path.GetFileName(tosort[k]));
+                        if (!File.Exists(sortfolder + "\\" + Path.GetFileName(tosort[k]))){
+                            File.Move(tosort[k], sortfolder + "\\" + Path.GetFileName(tosort[k]));
+                        }
                     }
                 }
             }
